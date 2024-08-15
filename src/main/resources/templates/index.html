@@ -14,7 +14,8 @@
         <!-- Firefox has a bug where it will allow users to type non-numbers but won't let it be submitted -->
         <!-- https://bugzilla.mozilla.org/show_bug.cgi?id=1398528 Probably won't ever be fixed -->
         <!-- Don't trust this regex too much -->
-        <input type="tel" inputmode="tel" id="phone" th:field="*{phone}" pattern="((\+44\d{10})|(0\d{10}))" />
+        <!-- This validation is bypassable with curl -d "phone=frog" localhost:8080/phone-number -->
+        <input type="tel" inputmode="tel" id="phone" th:field="*{phone}" pattern="((\+44\d{10})|(0\d{10}))" title="Enter a Valid UK Phone Number" />
         <input type="submit" value="Submit" />
     </form>
 </body>
